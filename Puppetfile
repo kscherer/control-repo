@@ -97,3 +97,8 @@ mod 'puppet-r10k',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-r10k.git',
  :ref => 'v4.0.2'
 
+mod 'theforeman-puppet',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.theforeman.puppet-puppet.git',
+ :ref => '7.0.0'
+
+

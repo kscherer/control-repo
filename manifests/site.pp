@@ -22,7 +22,7 @@ case $::location {
         content => inline_template( 'location=<%= @servername[0..2] %>' );
       '/etc/facter/facts.d/homedir_users.yaml':
         ensure => present,
-        source => 'puppet:///modules/wr/homedir_users.yaml';
+        source => 'puppet:///modules/profile/homedir_users.yaml';
     }
   }
   default: { } #location properly set, Nothing to do
