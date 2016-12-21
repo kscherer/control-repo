@@ -9,5 +9,6 @@ class profile::puppetserver
       server_storeconfigs_backend => 'puppetdb',
       server_external_nodes       => '',
       server_environments         => [],
+      server_common_modules_path  => [],
   }
 }
