@@ -101,4 +101,8 @@ mod 'theforeman-puppet',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.theforeman.puppet-puppet.git',
  :ref => '7.0.0'
 
+mod 'puppet-extlib',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-extlib.git',
+ :ref => 'v1.0.0'
+
 
