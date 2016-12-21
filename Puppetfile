@@ -27,7 +27,7 @@ mod 'deric-mesos',
 
 mod 'solarkennedy-consul',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.solarkennedy.puppet-consul.git',
-  :ref => '1.1.0'
+  :ref => 'v1.1.0'
 
 mod 'gdhbashton-consul_template',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.gdhbashton.puppet-consul_template.git',
@@ -83,7 +83,7 @@ mod 'saz-sudo',
 
 mod 'puppet-hiera',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-hiera.git',
- :ref => '2.3.0'
+ :ref => 'v2.3.0'
 
 mod 'dalen-puppetdbquery',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.dalen.puppet-puppetdbquery.git',
@@ -95,5 +95,5 @@ mod 'jtopjian-sshkeys',
 
 mod 'puppet-r10k',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-r10k.git',
- :ref => '4.0.2'
+ :ref => 'v4.0.2'
 
