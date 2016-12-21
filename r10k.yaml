@@ -1,0 +1,5 @@
+---
+:cachedir: .r10k_cache
+:sources:
+  puppet:
+    basedir: modules

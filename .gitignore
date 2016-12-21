@@ -1,1 +1,4 @@
 .#*
+.bundle
+.r10k_cache
+modules
