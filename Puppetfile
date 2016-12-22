@@ -110,5 +110,9 @@ mod 'puppetlabs-git',
  :ref => '0.5.0'
 
 mod 'ripienaar-mcollective',
- :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.puppetlabs-mcollective.git',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.puppet-mcollective.git',
  :ref => '0.0.21'
+
+mod 'mcollective-choria',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.mcollective-choria.git',
+ :ref => '0.0.11'
