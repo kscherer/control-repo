@@ -105,4 +105,6 @@ mod 'puppet-extlib',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-extlib.git',
  :ref => 'v1.0.0'
 
-
+mod 'puppetlabs-git',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-git.git',
+ :ref => '0.5.0'
