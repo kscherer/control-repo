@@ -27,8 +27,14 @@ class profile::puppetserver
 
   # Instead of running via mco, run r10k directly
   class {'r10k::webhook::config':
-    use_mcollective => false,
+    use_mcollective  => false,
+    protected        => false,
+    public_key_path  => '/etc/puppetlabs/puppetdb/ssl/public.pem',
+    private_key_path => '/etc/puppetlabs/puppetdb/ssl/private.pem',
+    notify           => Service['webhook'],
   }
+  # since webhook uses puppetdb certs it needs to be installed first
+  Package['puppetdb'] ->  Service[webhook]
 
   # The hook needs to run as root when not running using mcollective
   # It will issue r10k deploy environment <branch_from_gitlab_payload> -p
