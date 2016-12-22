@@ -108,3 +108,7 @@ mod 'puppet-extlib',
 mod 'puppetlabs-git',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-git.git',
  :ref => '0.5.0'
+
+mod 'ripienaar-mcollective',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.puppetlabs-mcollective.git',
+ :ref => '0.0.21'
