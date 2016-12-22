@@ -29,8 +29,8 @@ class profile::puppetserver
   class {'r10k::webhook::config':
     use_mcollective  => false,
     protected        => false,
-    public_key_path  => '/etc/puppetlabs/puppetdb/ssl/public.pem',
-    private_key_path => '/etc/puppetlabs/puppetdb/ssl/private.pem',
+    public_key_path  => "/etc/puppetlabs/puppet/ssl/ca/signed/${facts['fqdn']}.pem",
+    private_key_path => "/etc/puppetlabs/puppet/ssl/private_keys/${facts['fqdn']}.pem",
     notify           => Service['webhook'],
   }
   # since webhook uses puppetdb certs it needs to be installed first
