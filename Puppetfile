@@ -117,4 +117,13 @@ mod 'camptocamp-systemd',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.camptocamp.puppet-systemd.git',
  :ref => '0.4.0'
 
-mod 'ripienaar-mcollective', '0.0.21'
+mod 'ripienaar-mcollective',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.puppet-mcollective.git',
+ :ref => '0.0.21'
+
+mod 'ripienaar-mcollective_choria', '0.0.11'
+mod 'ripienaar-mcollective_agent_puppet', '1.11.1'
+mod 'ripienaar-mcollective_agent_package', '4.4.0-2'
+mod 'ripienaar-mcollective_agent_service', '3.1.3'
+mod 'ripienaar-mcollective_agent_filemgr', '1.1.0'
+mod 'ripienaar-mcollective_util_actionpolicy', '2.1.0'
