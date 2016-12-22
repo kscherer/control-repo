@@ -109,10 +109,12 @@ mod 'puppetlabs-git',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-git.git',
  :ref => '0.5.0'
 
-mod 'ripienaar-mcollective',
- :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.puppet-mcollective.git',
- :ref => '0.0.21'
+mod 'ripienaar-nats',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.puppet-nats.git',
+ :ref => '0.0.5'
 
-mod 'mcollective-choria',
- :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.mcollective-choria.git',
- :ref => '0.0.11'
+mod 'camptocamp-systemd',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.camptocamp.puppet-systemd.git',
+ :ref => '0.4.0'
+
+mod 'ripienaar-mcollective', '0.0.21'

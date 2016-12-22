@@ -1,6 +1,16 @@
 ---
 puppet::runmode: 'cron'
 
+mcollective_choria::config:
+  puppetserver_host: "ala-blade18.wrs.com"
+  puppetserver_port: 8140
+  puppetca_host: "ala-blade18.wrs.com"
+  puppetca_port: 8140
+  puppetdb_host: "ala-blade18.wrs.com"
+  puppetdb_port: 8081
+  middleware_hosts:
+    - "ala-blade18.wrs.com:4222"
+
 kscherer@yow-kscherer-l1: AAAAB3NzaC1yc2EAAAADAQABAAABAQCs5QlOT/Z9cYBI98+DwMtfyOF9uObQ0LVuLe0lM/SK3GgV2gtUDBElVlUXX+XSXXkdxbASqv6yjYZTGDM5+TjS6yaUdhl6z/SOC8njBAKUR+AxAgOHllQH9EnrsNGitgrM8sIj+2pyhPhwiSkWGuddhmWd/0SH/t41WpdwykkaZyoaECVRponMXz5KOEGEuq2i0tEvAbEXz9siZvSgp6VWNPuMrWc9Qv2c+9BzOyvfVU0gmzN1k1FtNZNWTqVILOLjXxnsfrHs4Fq3obfIPEmrOTkTtPvl28UtJNwjnh+9dvP7DJxA72TyiSdmwlMdPab06MonFmFAymsEG6fpngkV
 kscherer@yow-kscherer-d1: AAAAB3NzaC1yc2EAAAADAQABAAABAQDIEqmo+bxVNQdb1zZ0PAb8OVfMWP2ozeqEpEDstCGIQTgwo3kKABSTDKVJsj50VZugn9EqWc1nnLD9HJMb+z8mgnyGuIRdoozh93OttVE9Cz9mPBAKLjFk2T99xYCj/x15deC7s/BDlIPgNAK6QZkh5tJFeliKeiC5eh+ht1f1o6cBgJqvbvmE24b9AcjAdYbQBdlUaJdozhAQMdKUWLLb9AHFs6DlTcbdgyKnjyYu/cbVfkJ1JL92TXksurtjiRmCdHr1CiTU/x0BccNn05XWQMnUPMQyOHvC9xGXOwAcYZnQn+ab2xtG4KiMGeIRWSi1zXqQ0ATCE3unUVre0Nz/
 kscherer@argon: AAAAB3NzaC1yc2EAAAADAQABAAABAQCh4D+DWTc9sOM+gYlSg9UxaqZfsN1lD2LA+/MecDSWYN3ib4acMPCtcN/nHlY+Wo3oIcXmUfMgtVSVlupdOwmapdtW8v139qkqQ5A4ipRMEw2ThjJsHaORbjr7ekAwZz4uN0pFFC2ZfJkMAvxphL/msf0q+8CeIRYvDTYb97uJi0gHo9uYzgfKGflwdiKOCNBIKYUQAYMHGQLhysKZIYRVRUAd8fhlSB4T0vgpNzOL8BrkSS8WsIdsyEIPL8QH+w7U1qLHWEMPOwzSPQAO3D+SrZPLPJr8fkBgadXG1gSuf+d6nLfBxkUVThZYHTI54oNrg3ldrlLexxXATs0hVjZ5

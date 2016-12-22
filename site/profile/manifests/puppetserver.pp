@@ -1,6 +1,9 @@
 # Common settings for all nodes running a puppet server
 class profile::puppetserver
 {
+  include ::profile::base
+  include ::nats
+
   class {
     '::puppet':
       server                      => true,
