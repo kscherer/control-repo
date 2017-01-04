@@ -31,6 +31,7 @@ class profile::puppetserver
       eyaml_version  => installed,
       master_service => 'puppetserver',
       provider       => 'puppetserver_gem',
+      manage_package => true,
   }
 
   class {
