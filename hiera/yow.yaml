@@ -1,3 +1,5 @@
 ---
 ntp::servers:
   - yow-lpggp3.wrs.com
+mcollective::collectives:
+  - "yow"

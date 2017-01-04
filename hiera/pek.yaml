@@ -1,3 +1,5 @@
 ---
 ntp::servers:
   - pek-lpd-puppet.wrs.com
+mcollective::collectives:
+  - "pek"
