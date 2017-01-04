@@ -17,7 +17,7 @@ class profile::puppetserver
 
   class {
     '::hiera':
-      hierarchy      => [
+      hierarchy          => [
         'nodes/%{hostname}',
         '%{location}',
         '%{operatingsystem}-%{lsbmajdistrelease}-%{architecture}',
@@ -26,12 +26,12 @@ class profile::puppetserver
         'hardware/%{boardproductname}',
         'common'
       ],
-      datadir        => '/etc/puppetlabs/code/environments/%{::environment}/hiera',
-      eyaml          => true,
-      eyaml_version  => installed,
-      master_service => 'puppetserver',
-      provider       => 'puppetserver_gem',
-      manage_package => true,
+      datadir            => '/etc/puppetlabs/code/environments/%{::environment}/hiera',
+      eyaml              => true,
+      eyaml_version      => installed,
+      master_service     => 'puppetserver',
+      provider           => 'puppetserver_gem',
+      puppet_conf_manage => false,
   }
 
   class {
