@@ -119,11 +119,29 @@ mod 'camptocamp-systemd',
 
 mod 'ripienaar-mcollective',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.puppet-mcollective.git',
- :ref => '0.0.21'
+ :ref => '0.0.22'
 
-mod 'ripienaar-mcollective_choria', '0.0.11'
-mod 'ripienaar-mcollective_agent_puppet', '1.11.1'
-mod 'ripienaar-mcollective_agent_package', '4.4.0-2'
-mod 'ripienaar-mcollective_agent_service', '3.1.3'
-mod 'ripienaar-mcollective_agent_filemgr', '1.1.0'
-mod 'ripienaar-mcollective_util_actionpolicy', '2.1.0'
+# internal copy of released version from https://github.com/ripienaar/mcollective-choria
+mod 'ripienaar-mcollective_choria',
+ :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/choria.git',
+ :ref => '0.0.15'
+
+mod 'ripienaar-mcollective_agent_puppet',
+ :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/puppet-agent.git',
+ :ref => '1.11.1'
+
+mod 'ripienaar-mcollective_agent_package',
+ :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/package-agent.git',
+ :ref => '4.4.0-2'
+
+mod 'ripienaar-mcollective_agent_service',
+ :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/service-agent.git',
+ :ref => '3.1.3'
+
+mod 'ripienaar-mcollective_agent_filemgr',
+ :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/filemgr-agent.git',
+ :ref => '1.1.0'
+
+mod 'ripienaar-mcollective_util_actionpolicy',
+ :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/util-actionpolicy.git',
+ :ref => '2.1.0'
