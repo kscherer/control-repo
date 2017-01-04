@@ -10,6 +10,12 @@ mcollective_choria::config:
   puppetdb_port: 8081
   middleware_hosts:
     - "ala-blade18.wrs.com:4222"
+mcollective::site_policies:
+  - action: "allow"
+    callers: "choria=kscherer.mcollective"
+    actions: "*"
+    facts: "*"
+    classes: "*"
 
 ntp::servers:
   - ntp-1.wrs.com
