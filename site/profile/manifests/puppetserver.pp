@@ -16,7 +16,25 @@ class profile::puppetserver
   }
 
   class {
-    'r10k':
+    '::hiera':
+      hierarchy      => [
+        'nodes/%{hostname}',
+        '%{location}',
+        '%{operatingsystem}-%{lsbmajdistrelease}-%{architecture}',
+        '%{operatingsystem}-%{lsbmajdistrelease}',
+        '%{osfamily}',
+        'hardware/%{boardproductname}',
+        'common'
+      ],
+      datadir        => '/etc/puppetlabs/code/environments/%{::environment}/hiera',
+      eyaml          => true,
+      eyaml_version  => installed,
+      master_service => 'puppetserver',
+      provider       => 'puppetserver_gem',
+  }
+
+  class {
+    '::r10k':
       version         => 'latest',
       sources         => {
         'puppet' => {
@@ -29,12 +47,13 @@ class profile::puppetserver
   }
 
   # Instead of running via mco, run r10k directly
-  class {'r10k::webhook::config':
-    use_mcollective  => false,
-    protected        => false,
-    public_key_path  => "/etc/puppetlabs/puppet/ssl/ca/signed/${facts['fqdn']}.pem",
-    private_key_path => "/etc/puppetlabs/puppet/ssl/private_keys/${facts['fqdn']}.pem",
-    notify           => Service['webhook'],
+  class {
+    '::r10k::webhook::config':
+      use_mcollective  => false,
+      protected        => false,
+      public_key_path  => "/etc/puppetlabs/puppet/ssl/ca/signed/${facts['fqdn']}.pem",
+      private_key_path => "/etc/puppetlabs/puppet/ssl/private_keys/${facts['fqdn']}.pem",
+      notify           => Service['webhook'],
   }
   # since webhook uses puppetdb certs it needs to be installed first
   Package['puppetdb'] ->  Service[webhook]
@@ -42,10 +61,11 @@ class profile::puppetserver
   # The hook needs to run as root when not running using mcollective
   # It will issue r10k deploy environment <branch_from_gitlab_payload> -p
   # When git pushes happen.
-  class {'r10k::webhook':
-    use_mcollective => false,
-    user            => 'puppet',
-    group           => 'puppet',
-    require         => Class['r10k::webhook::config'],
+  class {
+    '::r10k::webhook':
+      use_mcollective => false,
+      user            => 'puppet',
+      group           => 'puppet',
+      require         => Class['r10k::webhook::config'],
   }
 }

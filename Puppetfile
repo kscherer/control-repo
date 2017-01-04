@@ -145,3 +145,7 @@ mod 'ripienaar-mcollective_agent_filemgr',
 mod 'ripienaar-mcollective_util_actionpolicy',
  :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/util-actionpolicy.git',
  :ref => '2.1.0'
+
+mod 'puppetlabs-puppetserver_gem',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-puppetserver_gem.git',
+ :ref => '0.2.0'
