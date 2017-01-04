@@ -1,5 +1,7 @@
+# Base profile included on all managed nodes
 class profile::base {
 
-  include mcollective
+  include ::ntp
+  include ::mcollective
 
 }
