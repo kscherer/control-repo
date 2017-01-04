@@ -1,0 +1,3 @@
+---
+mcollective::client: true
+mcollective::server: false
