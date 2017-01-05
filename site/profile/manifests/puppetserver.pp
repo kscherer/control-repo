@@ -32,6 +32,9 @@ class profile::puppetserver
       master_service     => 'puppetserver',
       provider           => 'puppetserver_gem',
       puppet_conf_manage => false,
+      # install eyaml package but uninstall hiera dpkg which isn't needed in aio
+      manage_package     => true,
+      package_ensure     => absent,
   }
 
   class {

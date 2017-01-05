@@ -1,6 +1,5 @@
 ---
 puppet::runmode: 'cron'
-hiera::eyaml::manage_package: true
 
 mcollective_choria::config:
   puppetserver_host: "ala-blade18.wrs.com"
