@@ -1,6 +1,6 @@
 SHELL = /bin/bash #requires bash
 
-.PHONY: help install update
+.PHONY: help install update clean
 
 .DEFAULT_GOAL := help
 
@@ -13,7 +13,10 @@ install: ## Install r10k and librarian-puppet using bundler
 	bundle install --path=.bundle
 
 update: install ## Update the packages in the local bundle
-	bundle update --path=.bundle
+	bundle update
 
 modules: install ## Install a local version of all the modules in the Puppetfile
 	bundle exec r10k puppetfile install --config r10k.yaml --puppetfile Puppetfile --moduledir modules -v
+
+clean: ## Delete all local gems and modules
+	rm -rf .bundle modules/*
