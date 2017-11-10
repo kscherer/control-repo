@@ -5,15 +5,15 @@ forge "https://forgeapi.puppetlabs.com"
 
 mod 'puppetlabs-stdlib',
   :git => 'git://ala-git.wrs.com/external/extra/github.com.puppetlabs.puppetlabs-stdlib.git',
-  :ref => '4.14.0'
+  :ref => '4.21.0'
 
 mod 'puppetlabs-apt',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppet-apt.git',
-  :ref => '2.3.0'
+  :ref => '4.3.0'
 
 mod 'puppet-unattended_upgrades',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppet-community.puppet-unattended_upgrades.git',
-  :ref => 'v2.1.0'
+  :ref => 'v3.0.1'
 
 mod 'b4ldr-logrotate', '1.1.3'
 
@@ -27,15 +27,15 @@ mod 'deric-mesos',
 
 mod 'solarkennedy-consul',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.solarkennedy.puppet-consul.git',
-  :ref => 'v1.1.0'
+  :ref => 'v3.1.1'
 
 mod 'gdhbashton-consul_template',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.gdhbashton.puppet-consul_template.git',
- :ref => '4cddf41c09c2487447ca698158848e6e93b75ce9'
+ :ref => '0.2.9'
 
 mod 'puppetlabs-inifile',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-inifile.git',
-  :ref => '1.6.0'
+  :ref => '2.0.0'
 
 mod 'dhoppe-postfix',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.dhoppe.puppet-postfix.git',
@@ -43,15 +43,15 @@ mod 'dhoppe-postfix',
 
 mod 'puppetlabs-concat',
   :git => 'git://ala-git.wrs.com/external/extra/github.com.puppetlabs.puppetlabs-concat.git',
-  :ref => '2.1.0'
+  :ref => '4.1.0'
 
 mod 'puppetlabs-xinetd',
   :git => 'git://ala-git.wrs.com/external/extra/github.com.puppetlabs.puppetlabs-xinetd.git',
-  :ref => '2.0.0'
+  :ref => '3.0.0'
 
 mod 'puppetlabs-vcsrepo',
   :git => 'git://ala-git.wrs.com/external/extra/github.com.puppetlabs.puppetlabs-vcsrepo.git',
-  :ref => '1.5.0'
+  :ref => '2.2.0'
 
 mod 'duritong-sysctl',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.duritong.puppet-sysctl.git',
@@ -59,31 +59,27 @@ mod 'duritong-sysctl',
 
 mod 'puppetlabs-ntp',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-ntp.git',
-  :ref => '6.0.0'
+  :ref => '7.0.0'
 
 mod 'puppetlabs-postgresql',
  :git => 'git://ala-git.wrs.com/external/extra/github.com.puppetlabs.puppetlabs-postgresql.git',
- :ref => '4.8.0'
+ :ref => '5.2.0'
 
 mod 'puppetlabs-puppetdb',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-puppetdb.git',
- :ref => '5.1.2'
-
-mod 'mrjoshuap-dnsmasq',
- :git => 'git://ala-git.wrs.com/external/puppet/github.com.mrjoshuap.puppet-dnsmasq.git',
- :ref => 'e96635b8428be746162c1732a75636e64345681c'
+ :ref => '6.0.2'
 
 mod 'puppet-archive',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-archive.git',
- :ref => 'v1.1.2'
+ :ref => 'v2.1.0'
 
 mod 'saz-sudo',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.saz.puppet-sudo.git',
- :ref => 'v3.1.0'
+ :ref => 'v4.2.0'
 
 mod 'puppet-hiera',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-hiera.git',
- :ref => 'v2.3.0'
+ :ref => 'v3.3.0'
 
 mod 'dalen-puppetdbquery',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.dalen.puppet-puppetdbquery.git',
@@ -95,11 +91,11 @@ mod 'jtopjian-sshkeys',
 
 mod 'puppet-r10k',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-r10k.git',
- :ref => 'v5.0.2'
+ :ref => 'v6.2.0'
 
 mod 'theforeman-puppet',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.theforeman.puppet-puppet.git',
- :ref => '7.0.0'
+ :ref => '8.0.3'
 
 mod 'puppet-extlib',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-extlib.git',
@@ -109,43 +105,22 @@ mod 'puppetlabs-git',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-git.git',
  :ref => '0.5.0'
 
-mod 'ripienaar-nats',
- :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.puppet-nats.git',
- :ref => '0.0.5'
+mod 'choria-nats',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.choria-io.puppet-nats.git',
+ :ref => '0.2.0'
 
 mod 'camptocamp-systemd',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.camptocamp.puppet-systemd.git',
- :ref => '0.4.0'
-
-mod 'ripienaar-mcollective',
- :git => 'git://ala-git.wrs.com/external/puppet/github.com.ripienaar.puppet-mcollective.git',
- :ref => '0.0.22'
-
-# internal copy of released version from https://github.com/ripienaar/mcollective-choria
-mod 'ripienaar-mcollective_choria',
- :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/choria.git',
- :ref => '0.0.15'
-
-mod 'ripienaar-mcollective_agent_puppet',
- :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/puppet-agent.git',
- :ref => '1.11.1'
-
-mod 'ripienaar-mcollective_agent_package',
- :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/package-agent.git',
- :ref => '4.4.0-2'
-
-mod 'ripienaar-mcollective_agent_service',
- :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/service-agent.git',
- :ref => '3.1.3'
-
-mod 'ripienaar-mcollective_agent_filemgr',
- :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/filemgr-agent.git',
  :ref => '1.1.0'
-
-mod 'ripienaar-mcollective_util_actionpolicy',
- :git => 'git://ala-git.wrs.com/lpd-ops/mcollective/util-actionpolicy.git',
- :ref => '2.1.0'
 
 mod 'puppetlabs-puppetserver_gem',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-puppetserver_gem.git',
  :ref => '0.2.0'
+
+mod 'choria-mcollective', '0.2.0'
+mod 'choria-mcollective_choria', '0.4.0'
+mod 'choria-mcollective_agent_puppet', '1.13.2'
+mod 'choria-mcollective_agent_package', '4.5.0'
+mod 'choria-mcollective_agent_service', '3.2.0'
+mod 'choria-mcollective_agent_filemgr', '1.1.0'
+mod 'choria-mcollective_util_actionpolicy', '2.2.0'
