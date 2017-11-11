@@ -95,7 +95,15 @@ mod 'puppet-r10k',
 
 mod 'theforeman-puppet',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.theforeman.puppet-puppet.git',
- :ref => '8.0.3'
+ :ref => '8.0.4'
+
+mod 'puppetlabs-puppet_authorization',
+ :git => 'https://github.com/puppetlabs/puppetlabs-puppet_authorization.git',
+ :ref => '0.4.0'
+
+mod 'puppetlabs-hocon',
+ :git => 'https://github.com/puppetlabs/puppetlabs-hocon.git',
+ :ref => '1.0.0'
 
 mod 'puppet-extlib',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-extlib.git',
