@@ -8,8 +8,7 @@ mcollective_choria::config:
   puppetca_port: 8140
   puppetdb_host: "ala-blade18.wrs.com"
   puppetdb_port: 8081
-  middleware_hosts:
-    - "ala-blade18.wrs.com:4222"
+  middleware_hosts: "ala-blade18.wrs.com:4222"
 mcollective::site_policies:
   - action: "allow"
     callers: "choria=kscherer.mcollective"
