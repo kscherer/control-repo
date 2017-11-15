@@ -27,7 +27,7 @@ mod 'deric-mesos',
 
 mod 'solarkennedy-consul',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.solarkennedy.puppet-consul.git',
-  :ref => 'v3.1.1'
+  :ref => 'v3.1.2'
 
 mod 'gdhbashton-consul_template',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.gdhbashton.puppet-consul_template.git',
