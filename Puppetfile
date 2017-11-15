@@ -98,11 +98,11 @@ mod 'theforeman-puppet',
  :ref => '8.0.4'
 
 mod 'puppetlabs-puppet_authorization',
- :git => 'https://github.com/puppetlabs/puppetlabs-puppet_authorization.git',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-puppet_authorization.git',
  :ref => '0.4.0'
 
 mod 'puppetlabs-hocon',
- :git => 'https://github.com/puppetlabs/puppetlabs-hocon.git',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-hocon.git',
  :ref => '1.0.0'
 
 mod 'puppet-extlib',
