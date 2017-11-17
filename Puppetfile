@@ -125,10 +125,31 @@ mod 'puppetlabs-puppetserver_gem',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-puppetserver_gem.git',
  :ref => '0.2.0'
 
-mod 'choria-mcollective', '0.2.0'
-mod 'choria-mcollective_choria', '0.4.0'
-mod 'choria-mcollective_agent_puppet', '1.13.2'
-mod 'choria-mcollective_agent_package', '4.5.0'
-mod 'choria-mcollective_agent_service', '3.2.0'
-mod 'choria-mcollective_agent_filemgr', '1.1.0'
-mod 'choria-mcollective_util_actionpolicy', '2.2.0'
+mod 'choria-mcollective',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.choria-io.puppet-mcollective.git',
+ :ref => '0.2.1'
+
+# internal git tree copies of forge modules
+mod 'choria-mcollective_choria',
+ :git => 'git://ala-git.wrs.com/lpd-ops/choria/mcollective_choria.git',
+ :ref => '0.4.0'
+
+mod 'choria-mcollective_agent_puppet',
+ :git => 'git://ala-git.wrs.com/lpd-ops/choria/mcollective_agent_puppet.git',
+ :ref => '1.13.2'
+
+mod 'choria-mcollective_agent_package',
+ :git => 'git://ala-git.wrs.com/lpd-ops/choria/mcollective_agent_package.git',
+ :ref => '4.5.0'
+
+mod 'choria-mcollective_agent_service',
+ :git => 'git://ala-git.wrs.com/lpd-ops/choria/mcollective_agent_service.git',
+ :ref => '3.2.0'
+
+mod 'choria-mcollective_agent_filemgr',
+ :git => 'git://ala-git.wrs.com/lpd-ops/choria/mcollective_agent_filemgr.git',
+ :ref => '1.1.0'
+
+mod 'choria-mcollective_util_actionpolicy',
+ :git => 'git://ala-git.wrs.com/lpd-ops/choria/mcollective_util_actionpolicy.git',
+ :ref => '2.2.0'
