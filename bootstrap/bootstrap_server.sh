@@ -1,11 +1,15 @@
 #!/bin/bash -x
 
+if [ -z "$MIRROR" ]; then
+    MIRROR=ala-mirror.wrs.com
+fi
+
 # Assume Ubuntu 16.04+
 
 echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/00norecommends
 
-sed -i -e 's#archive.ubuntu.com#yow-mirror.wrs.com/mirror/ubuntu.com#' \
-  -e 's#security.ubuntu.com#yow-mirror.wrs.com/mirror/ubuntu.com#' \
+sed -i -e "s#archive.ubuntu.com#$MIRROR/mirror/ubuntu.com#" \
+  -e "s#security.ubuntu.com#$MIRROR/mirror/ubuntu.com#" \
   -e '/deb-src/d' /etc/apt/sources.list
 
 apt-get update
@@ -42,9 +46,9 @@ if ! hash puppet 2>/dev/null; then
         if ! hash curl 2>/dev/null; then
             apt-get install -y curl
         fi
-        curl -o /root/puppet5-release-xenial.deb http://ala-mirror.wrs.com/mirror/puppetlabs/apt/puppet5-release-xenial.deb
+        curl -o /root/puppet5-release-xenial.deb "http://$MIRROR/mirror/puppetlabs/apt/puppet5-release-xenial.deb"
         dpkg -i /root/puppet5-release-xenial.deb
-        sed -i 's#apt.puppetlabs.com#ala-mirror.wrs.com/mirror/puppetlabs/apt#g' /etc/apt/sources.list.d/puppet5.list
+        sed -i "s#apt.puppetlabs.com#$MIRROR/mirror/puppetlabs/apt#g" /etc/apt/sources.list.d/puppet5.list
         rm -f /root/puppet5-release-xenial.deb
         apt-get update
     fi
