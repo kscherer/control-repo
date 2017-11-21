@@ -77,10 +77,6 @@ mod 'saz-sudo',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.saz.puppet-sudo.git',
  :ref => 'v4.2.0'
 
-mod 'puppet-hiera',
- :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-hiera.git',
- :ref => 'v3.3.0'
-
 mod 'dalen-puppetdbquery',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.dalen.puppet-puppetdbquery.git',
   :ref => '1.5.3'
