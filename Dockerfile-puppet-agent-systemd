@@ -1,0 +1,18 @@
+FROM solita/ubuntu-systemd:16.04
+
+ENV PUPPET_AGENT_VERSION="5.3.2" UBUNTU_CODENAME="xenial" container=docker
+
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y wget ca-certificates lsb-release && \
+    wget https://apt.puppetlabs.com/puppet5-release-"$UBUNTU_CODENAME".deb && \
+    dpkg -i puppet5-release-"$UBUNTU_CODENAME".deb && \
+    rm puppet5-release-"$UBUNTU_CODENAME".deb && \
+    apt-get update && \
+    apt-get install --no-install-recommends -y puppet-agent="$PUPPET_AGENT_VERSION"-1"$UBUNTU_CODENAME" systemd-cron && \
+    rm -f /etc/systemd/system/multi-user.target.wants/puppet.service /etc/systemd/system/multi-user.target.wants/mcollective.service && \
+    apt-get remove --purge -y wget && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH

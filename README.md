@@ -63,8 +63,22 @@ Notes:
   of puppet modules supports the following locations: ala, yow and
   pek.
 
-- Docker containers do not have a functioning init system like systemd
-  and some modules that rely on the systemd provider will fail.
+## Docker and systemd
+
+Docker containers do not have a functioning init system like systemd
+and some modules that rely on the systemd provider will fail.
+
+To run a systemd enabled container the process is more complicated:
+
+    > docker run -d -t --rm --name puppet-agent --hostname <hostname> \
+      --link puppet -e FACTER_location=yow --security-opt seccomp=unconfined \
+      --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+      windriver/puppet-agent-ubuntu
+    > docker exec -it puppet bash -c 'puppet node clean <hostname>'
+    > docker exec -it puppet-agent bash
+    # puppet agent --test
+    # ...
+    > docker stop puppet-agent
 
 ## Acknowledgements
 
