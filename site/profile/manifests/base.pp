@@ -10,8 +10,10 @@ class profile::base {
     Class['profile::common::package_mirrors'] -> Class['ntp']
   }
 
-  include ::mcollective
+  if $facts['virtual'] != 'docker' {
+    include ::mcollective
 
-  include ::profile::consul
-  Class['profile::common::package_mirrors'] -> Class['profile::consul']
+    include ::profile::consul
+    Class['profile::common::package_mirrors'] -> Class['profile::consul']
+  }
 }

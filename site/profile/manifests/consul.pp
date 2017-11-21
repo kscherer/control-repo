@@ -1,6 +1,5 @@
 #
 class profile::consul {
-  include ::consul
 
   file {
     '/opt':
