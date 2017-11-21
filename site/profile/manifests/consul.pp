@@ -4,8 +4,6 @@ class profile::consul {
   file {
     '/opt':
       ensure => directory;
-    '/opt/consul':
-      ensure => directory;
     '/usr/local/bin':
       ensure => directory;
     '/usr/local/bin/consul':
