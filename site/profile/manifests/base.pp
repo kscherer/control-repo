@@ -11,5 +11,7 @@ class profile::base {
   }
 
   include ::mcollective
-  include ::consul
+
+  include ::profile::consul
+  Class['profile::common::package_mirrors'] -> Class['profile::consul']
 }
