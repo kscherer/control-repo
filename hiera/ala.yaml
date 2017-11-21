@@ -1,3 +1,8 @@
 ---
 mcollective::collectives:
   - "ala"
+
+consul_config_hash:
+  datacenter: 'ala'
+  retry_join:
+    - '147.11.105.38' # ala-blade18

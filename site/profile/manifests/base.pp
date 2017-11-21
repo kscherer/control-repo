@@ -11,4 +11,5 @@ class profile::base {
   }
 
   include ::mcollective
+  include ::consul
 }
