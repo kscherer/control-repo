@@ -26,7 +26,7 @@ Using docker to simulate a local test setup for the development of
 puppet modules. Puppet has made docker images of the puppetserver and
 agent available on Docker Hub.
 
-    docker run --rm --name puppet --hostname puppet --dns 127.0.0.11 \
+    docker run -d --rm --name puppet --hostname puppet \
       -v $PWD:/etc/puppetlabs/code/environments/production puppet/puppetserver-standalone
 
     docker run -it --rm --hostname <hostname> --link puppet -e FACTER_location=ala \
@@ -49,8 +49,6 @@ Notes:
   following command to clear the cert from the puppetserver:
 
     docker exec -it puppet bash -c 'puppet node clean <hostname>'
-
-- Setting DNS to 127.0.0.11 uses the internal docker DNS server.
 
 - The use of --link puppet allows the agent container to connect to
   the puppetserver using hostname puppet.

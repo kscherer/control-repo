@@ -21,5 +21,8 @@ modules: install ## Install a local version of all the modules in the Puppetfile
 puppet-agent-ubuntu: ## Build a docker image which has running systemd to test modules that depend on systemd
 	cat Dockerfile-puppet-agent-systemd | docker build -t windriver/puppet-agent-ubuntu -
 
+puppetserver: ## Build a docker image which has running systemd to test modules that depend on systemd
+	cat Dockerfile-puppetserver-eyaml | docker build -t windriver/puppetserver-standalone -
+
 clean: ## Delete all local gems and modules
 	rm -rf .bundle modules/*
