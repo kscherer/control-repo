@@ -26,7 +26,7 @@ Using docker to simulate a local test setup for the development of
 puppet modules. Puppet has made docker images of the puppetserver and
 agent available on Docker Hub.
 
-    docker run -d --rm --name puppet --hostname puppet \
+    docker run -d --rm --name puppet --hostname puppet.wrs.com \
       -v $PWD:/etc/puppetlabs/code/environments/production puppet/puppetserver-standalone
 
     docker run -it --rm --hostname <hostname> --link puppet -e FACTER_location=ala \
@@ -71,7 +71,7 @@ To run a systemd enabled container the process is more complicated:
     > docker run -d -t --rm --name puppet-agent --hostname <hostname> \
       --link puppet -e FACTER_location=yow --security-opt seccomp=unconfined \
       --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-      windriver/puppet-agent-ubuntu
+      --dns-search='wrs.com' windriver/puppet-agent-ubuntu
     > docker exec -it puppet bash -c 'puppet node clean <hostname>'
     > docker exec -it puppet-agent bash
     # puppet agent --test

@@ -3,6 +3,7 @@ class profile::base {
 
   include ::profile::common::etc_host_setup
   include ::profile::common::package_mirrors
+  include ::puppet
 
   if $facts['service_provider'] == 'systemd' {
     include ::profile::common::systemd

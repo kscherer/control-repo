@@ -5,17 +5,6 @@ class profile::puppetserver
   include ::nats
 
   class {
-    '::puppet':
-      server                      => true,
-      server_foreman              => false,
-      server_reports              => 'store',
-      server_storeconfigs_backend => 'puppetdb',
-      server_external_nodes       => '',
-      server_environments         => [],
-      server_common_modules_path  => [],
-  }
-
-  class {
     '::r10k':
       version         => 'latest',
       sources         => {

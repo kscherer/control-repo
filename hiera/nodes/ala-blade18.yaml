@@ -1,4 +1,12 @@
 ---
+puppet::server: true
+puppet::server_foreman: false
+puppet::server_reports: 'store'
+puppet::server_storeconfigs_backend: 'puppetdb'
+puppet::server_external_nodes: ''
+puppet::server_environments:
+puppet::server_common_modules_path:
+
 consul_config_hash:
   server: true
   bootstrap_expect: '1'
