@@ -1,5 +1,7 @@
 ---
-:cachedir: .r10k_cache
+# The default value is "~/.r10k"
+# r10k bug with relative directories and setting alternates properly
+#:cachedir: .r10k_cache
 :sources:
   puppet:
     basedir: modules
