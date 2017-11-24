@@ -1,7 +1,7 @@
 ---
 puppet::server: true
 puppet::server_foreman: false
-puppet::server_reports: 'store'
+puppet::server_reports: 'puppetdb,foreman'
 puppet::server_storeconfigs_backend: 'puppetdb'
 puppet::server_external_nodes: ''
 puppet::server_environments:

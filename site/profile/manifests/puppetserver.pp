@@ -39,4 +39,20 @@ class profile::puppetserver
       group           => 'puppet',
       require         => Class['r10k::webhook::config'],
   }
+
+  # foreman report processing
+  File {
+    '/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet/reports/foreman.rb':
+      ensure => file,
+      owner  => 'puppet',
+      group  => 'puppet',
+      mode   => '0755',
+      source => 'puppet:///modules/profile/foreman.rb';
+    '/etc/puppetlabs/puppet/foreman.yaml':
+      ensure => file,
+      owner  => 'puppet',
+      group  => 'puppet',
+      mode   => '0755',
+      source => 'puppet:///modules/profile/foreman.yaml';
+  }
 }
