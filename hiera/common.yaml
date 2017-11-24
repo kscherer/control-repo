@@ -2,8 +2,7 @@
 puppet::runmode: 'cron'
 puppet::puppetmaster: '%{server_facts.servername}'
 
-puppetdb::ssl_listen_address: 0.0.0.0
-puppetdb::disable_cleartext: true
+puppetdb::listen_address: 0.0.0.0
 puppetdb::master::config::manage_storeconfigs: false
 puppetdb::master::config::restart_puppet: false
 puppetdb::report_ttl: "7d"
