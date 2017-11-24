@@ -1,3 +1,6 @@
 ---
-url: 'https://ala-lpd-provision.wrs.com/'
-report_timeout: 20
+:url: 'https://ala-lpd-provision.wrs.com'
+:report_timeout: 10
+:ssl_ca: "/etc/puppet3/ssl/certs/ca.pem"
+:ssl_cert: "/etc/puppet3/ssl/certs/ala-blade18.wrs.com.pem"
+:ssl_key: "/etc/puppet3/ssl/private_keys/ala-blade18.wrs.com.pem"

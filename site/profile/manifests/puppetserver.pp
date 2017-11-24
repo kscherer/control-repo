@@ -55,4 +55,14 @@ class profile::puppetserver
       mode   => '0755',
       source => 'puppet:///modules/profile/foreman.yaml';
   }
+
+  # to access ala-lpd-provision from 105 subnet must use ala-lpd-provision105.
+  # but to send reports to ala-lpd-provision over https the certname must match
+  # so this /etc/hosts override is needed
+  host {
+    'ala-lpd-provision.wrs.com':
+      ip           => '147.11.105.92',
+      host_aliases => 'ala-lpd-provision';
+  }
+
 }
