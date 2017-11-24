@@ -6,6 +6,7 @@ puppet::server_storeconfigs_backend: 'puppetdb'
 puppet::server_external_nodes: ''
 puppet::server_environments:
 puppet::server_common_modules_path:
+puppet::server_directory_environments: false
 
 consul_config_hash:
   server: true
