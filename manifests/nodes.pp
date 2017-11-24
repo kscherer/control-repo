@@ -13,5 +13,9 @@ node 'ala-blade18.wrs.com' {
 }
 
 node /ala-lpggp[67].wrs.com/ {
-  include ::profile::base
+  include ::profile::docker
+}
+
+node 'ala-blade21.wrs.com' {
+  include ::profile::docker
 }
