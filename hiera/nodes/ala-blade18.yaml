@@ -4,9 +4,8 @@ puppet::server_foreman: false
 puppet::server_reports: 'puppetdb,foreman'
 puppet::server_storeconfigs_backend: 'puppetdb'
 puppet::server_external_nodes: ''
-puppet::server_environments:
-puppet::server_common_modules_path:
-puppet::server_directory_environments: false
+puppet::server_environments: []
+puppet::server_common_modules_path: []
 
 consul_config_hash:
   server: true
