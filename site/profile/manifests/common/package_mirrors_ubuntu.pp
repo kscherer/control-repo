@@ -3,7 +3,7 @@ class profile::common::package_mirrors_ubuntu {
   include ::apt
   include ::unattended_upgrades
 
-  $mirror_base = "http://${facts['location']}-mirror.wrs.com/mirror"
+  $mirror_base = "http://${trusted['extensions']['pp_datacenter']}-mirror.wrs.com/mirror"
   $ubuntu_mirror = "${mirror_base}/ubuntu.com/ubuntu"
 
   apt::source {
@@ -21,7 +21,7 @@ class profile::common::package_mirrors_ubuntu {
       repos    => 'main restricted universe multiverse';
     # Due to git CVE-2016-2315 and CVE-2016-2324 update git on all Ubuntu machines
     'git-core-ppa':
-      location     => "http://${::location}-mirror.wrs.com/mirror/apt/ppa.launchpad.net/git-core/ppa/ubuntu/",
+      location     => "${mirror_base}/apt/ppa.launchpad.net/git-core/ppa/ubuntu/",
       release      => $facts['lsbdistcodename'],
       repos        => 'main',
       architecture => 'amd64',
@@ -36,7 +36,7 @@ class profile::common::package_mirrors_ubuntu {
 
   apt::source {
     'puppetlabs':
-      location => "http://${facts['location']}-mirror.wrs.com/mirror/puppetlabs/apt",
+      location => "${mirror_base}/puppetlabs/apt",
       release  => $facts['lsbdistcodename'],
       repos    => 'puppet5';
   }

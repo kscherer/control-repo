@@ -9,10 +9,7 @@ hierarchy:
     path: "nodes/%{hostname}.yaml"
 
   - name: "Location"
-    path: "%{location}.yaml"
-
-  - name: "Hardware"
-    path: "hardware/%{boardproductname}.yaml"
+    path: "%{trusted.extensions.pp_datacenter}.yaml"
 
   - name: "Eyaml hierarchy"
     lookup_key: eyaml_lookup_key # eyaml backend
