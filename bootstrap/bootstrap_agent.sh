@@ -6,6 +6,16 @@ if [ -z "$MIRROR" ]; then
     MIRROR=ala-mirror.wrs.com
 fi
 
+if [ -z "$LOCATION" ]; then
+    LOCATION=ala
+fi
+
+cat > /etc/puppetlabs/puppet/csr_attributes.yaml << EOF
+---
+extension_requests:
+  pp_datacenter: $LOCATION
+EOF
+
 echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/00norecommends
 
 sed -i -e "s#archive.ubuntu.com#$MIRROR/mirror/ubuntu.com#" \
