@@ -121,6 +121,14 @@ mod 'puppetlabs-puppetserver_gem',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-puppetserver_gem.git',
  :ref => '0.2.0'
 
+mod 'example42-network',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.example42.puppet-network.git',
+ :ref => 'v3.3.9'
+
+mod 'saz-resolv_conf',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.saz.puppet-resolv_conf.git',
+ :ref => 'v3.3.0'
+
 mod 'choria-mcollective',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.choria-io.puppet-mcollective.git',
  :ref => '0.2.1'
