@@ -1,5 +1,15 @@
 ---
+nameservers:
+  - 128.224.144.130
+  - 147.11.136.64
+
 ntp::servers:
   - yow-lpggp3.wrs.com
+
 mcollective::collectives:
   - "yow"
+
+consul_config_hash:
+  datacenter: 'yow'
+  retry_join:
+    - '128.224.137.17' # yow-git2
