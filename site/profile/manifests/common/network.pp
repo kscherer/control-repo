@@ -2,7 +2,7 @@
 # Will use network settings from DHCP to populate static networking config
 class profile::common::network {
   if $facts['virtual'] != 'docker' {
-    $ip_array = split($facts['networking']['ip'], '.')
+    $ip_array = split($facts['networking']['ip'], '[.]')
     $subnet = join($ip_array[0,3], '.')
 
     network::interface {
