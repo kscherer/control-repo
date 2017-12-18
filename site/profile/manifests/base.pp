@@ -5,6 +5,7 @@ class profile::base {
   include ::profile::common::package_mirrors
   include ::profile::common::network
   include ::puppet
+  include ::omsa
 
   if $facts['service_provider'] == 'systemd' {
     include ::profile::common::systemd

@@ -3,3 +3,5 @@ ntp::servers:
   - pek-lpd-puppet.wrs.com
 mcollective::collectives:
   - "pek"
+
+omsa::repo_base: 'http://pek-mirror.wrs.com/mirror/dell/community/openmanage'

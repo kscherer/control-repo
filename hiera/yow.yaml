@@ -13,3 +13,5 @@ consul_config_hash:
   datacenter: 'yow'
   retry_join:
     - '128.224.137.17' # yow-git2
+
+omsa::repo_base: 'http://yow-mirror.wrs.com/mirror/dell/community/openmanage'
