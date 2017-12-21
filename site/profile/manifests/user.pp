@@ -36,6 +36,11 @@ define profile::user( $password, $managehome = true ) {
       user   => $name,
       key    => hiera('kscherer@argon'),
       type   => 'ssh-rsa';
+    "ywang_${name}":
+      ensure => 'present',
+      user   => $name,
+      key    => hiera('ywang@yow-lpdtest'),
+      type   => 'ssh-rsa';
   }
 
   file {
