@@ -11,3 +11,12 @@ consul_config_hash:
   server: true
   bootstrap_expect: '1'
   ui: true
+
+sensu::server: true
+sensu::api: true
+sensu::api_user: 'sensu'
+sensu::api_password: 'sensu'
+uchiwa::install_repo: false
+uchiwa::sensu_api_endpoints:
+  - name: 'LPD'
+    host: '147.11.105.38'

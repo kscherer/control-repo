@@ -4,15 +4,9 @@ class profile::base {
   include ::profile::common::etc_host_setup
   include ::profile::common::package_mirrors
   include ::profile::common::network
+  include ::profile::common::clocksync
   include ::puppet
   include ::omsa
-
-  if $facts['service_provider'] == 'systemd' {
-    include ::profile::common::systemd
-  } else {
-    include ::ntp
-    Class['profile::common::package_mirrors'] -> Class['ntp']
-  }
 
   if $facts['virtual'] != 'docker' {
     include ::mcollective

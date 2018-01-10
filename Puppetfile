@@ -133,6 +133,26 @@ mod 'choria-mcollective',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.choria-io.puppet-mcollective.git',
  :ref => '0.2.1'
 
+mod 'puppet-sensu',
+ :git => 'https://github.com/sensu/sensu-puppet.git',
+ :ref => 'v2.42.0'
+
+mod 'lwf-remote_file',
+ :git => 'https://github.com/lwf/puppet-remote_file.git',
+ :ref => 'v1.1.3'
+
+mod 'yelp-uchiwa',
+ :git => 'https://github.com/Yelp/puppet-uchiwa.git',
+ :ref => 'v1.0.1'
+
+mod 'arioch-redis',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.arioch.puppet-redis.git',
+ :ref => 'v3.2.0'
+
+mod 'puppet-rabbitmq',
+ :git => 'git://ala-git.wrs.com/external/extra/github.com.puppetlabs.puppetlabs-rabbitmq.git/',
+ :ref => 'v8.0.0'
+
 # internal git tree copies of forge modules
 mod 'choria-mcollective_choria',
  :git => 'git://ala-git.wrs.com/lpd-ops/choria/mcollective_choria.git',

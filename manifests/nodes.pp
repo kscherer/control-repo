@@ -10,6 +10,7 @@ node 'yow-kscherer-d1.wrs.com' {
 
 node 'ala-blade18.wrs.com' {
   include ::role::puppetserver
+  include ::profile::sensu::server
 }
 
 node /ala-lpggp[67].wrs.com/ {
