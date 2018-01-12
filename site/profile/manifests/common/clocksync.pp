@@ -9,5 +9,5 @@ class profile::common::clocksync {
     Class['profile::common::package_mirrors'] -> Class['ntp']
   }
 
-  include ::profile::sensu::ntp
+  include ::profile::sensu::check_ntp
 }

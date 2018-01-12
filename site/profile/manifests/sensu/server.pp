@@ -34,4 +34,7 @@ class profile::sensu::server {
   Class['rabbitmq'] -> Class['sensu']
   Class['sensu'] -> Class['uchiwa']
 
+  # active check for zookeeper cluster run on server
+  include ::profile::sensu::check_zookeeper
+
 }
