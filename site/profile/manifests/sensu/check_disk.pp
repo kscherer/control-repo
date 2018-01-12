@@ -9,7 +9,7 @@ class profile::sensu::check_disk {
   # standalone check must be defined on every sensu client
   sensu::check {
     'check_disk':
-      command     => "${::profile::sensu::params::check_path} check_disk --warning=10% --critical=5% --stat-remote-fs --units=GB -X tmpfs -X devtmpfs -X tracefs",
+      command     => "${::profile::sensu::params::check_path} check_disk --warning=10% --critical=5% --stat-remote-fs --units=GB -X tmpfs -X devtmpfs -X tracefs  -X nsfs -X overlay",
       subscribers => 'disk',
       ttl         => 900,
       interval    => 300,
