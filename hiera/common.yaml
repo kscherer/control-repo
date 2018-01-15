@@ -29,7 +29,7 @@ ntp::servers:
   - ntp-2.wrs.com
   - ntp-3.wrs.com
 
-consul::version: '1.0.1'
+consul::version: '1.0.2'
 consul::download_url_base: 'http://ala-mirror.wrs.com/mirror/consul/'
 consul::pretty_config: true
 consul::bin_dir: '/opt/consul/'
