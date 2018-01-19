@@ -19,13 +19,5 @@ class profile::common::network {
         nameservers => lookup('nameservers'),
         searchpath  => ['wrs.com', 'windriver.com', 'corp.ad.wrs.com'],
     }
-
-    # Since Puppet is managing resolv.conf, remove programs that could interfere
-    if $facts['osfamily'] == 'Debian' {
-      package {
-        'resolvconf':
-          ensure => absent;
-      }
-    }
   }
 }

@@ -1,0 +1,11 @@
+[user]
+        email = git@git.wrs.com
+        name = Git Admin
+[core]
+        bigFileThreshold = 100k
+[repack]
+        writeBitmaps = true
+[gc]
+        auto = 0
+[http]
+        receivepack = false

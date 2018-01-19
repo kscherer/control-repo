@@ -105,10 +105,6 @@ mod 'puppet-extlib',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.voxpupuli.puppet-extlib.git',
  :ref => 'v1.0.0'
 
-mod 'puppetlabs-git',
- :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-git.git',
- :ref => '0.5.0'
-
 mod 'choria-nats',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.choria-io.puppet-nats.git',
  :ref => '0.2.0'
@@ -124,10 +120,6 @@ mod 'puppetlabs-puppetserver_gem',
 mod 'example42-network',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.example42.puppet-network.git',
  :ref => 'v3.3.9'
-
-mod 'saz-resolv_conf',
- :git => 'git://ala-git.wrs.com/external/puppet/github.com.saz.puppet-resolv_conf.git',
- :ref => 'v3.3.0'
 
 mod 'choria-mcollective',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.choria-io.puppet-mcollective.git',
@@ -152,6 +144,14 @@ mod 'arioch-redis',
 mod 'puppet-rabbitmq',
  :git => 'git://ala-git.wrs.com/external/extra/github.com.puppetlabs.puppetlabs-rabbitmq.git/',
  :ref => 'v8.0.0'
+
+mod 'bodgit-zfs',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.bodgit.puppet-zfs.git/',
+ :ref => 'v2.2.1'
+
+mod 'camptocamp-kmod',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.camptocamp.puppet-kmod.git/',
+ :ref => '2.2.0'
 
 # internal git tree copies of forge modules
 mod 'choria-mcollective_choria',

@@ -21,6 +21,10 @@ node 'ala-blade21.wrs.com' {
   include ::profile::docker
 }
 
+node 'yow-git2.wrs.com' {
+  include ::profile::git::mirror
+}
+
 node 'ala-danield-node1.wrs.com' {
   include ::profile::common::etc_host_setup
   include ::profile::common::network
