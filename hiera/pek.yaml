@@ -10,7 +10,7 @@ mcollective::collectives:
   - "pek"
 
 consul_config_hash:
-  datacenter: 'yow'
+  datacenter: 'pek'
   retry_join:
     - '128.224.153.37' # pek-git-new
   
