@@ -11,6 +11,9 @@ consul_config_hash:
   server: true
   bootstrap_expect: '1'
   ui: true
+  retry_join_wan:
+    - '128.224.137.17' # yow-git2
+    - '128.224.153.37' # pek-git-new
 
 sensu::server: true
 sensu::api: true

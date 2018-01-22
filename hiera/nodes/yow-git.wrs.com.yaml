@@ -1,5 +1,1 @@
----
-consul_config_hash:
-  server: true
-  bootstrap_expect: '1'
-  ui: true
+yow-git2.wrs.com.yaml
