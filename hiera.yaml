@@ -6,7 +6,7 @@ defaults:
 hierarchy:
 
   - name: "Nodes"
-    path: "nodes/%{hostname}.yaml"
+    path: "nodes/%{trusted.certname}.yaml"
 
   - name: "Location"
     path: "%{trusted.extensions.pp_datacenter}.yaml"
