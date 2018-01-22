@@ -1,7 +1,17 @@
 ---
+nameservers:
+  - 128.224.160.11
+  - 147.11.136.64
+
 ntp::servers:
   - pek-lpd-puppet.wrs.com
+
 mcollective::collectives:
   - "pek"
 
+consul_config_hash:
+  datacenter: 'yow'
+  retry_join:
+    - '128.224.153.37' # pek-git-new
+  
 omsa::repo_base: 'http://pek-mirror.wrs.com/mirror/dell/community/openmanage'
