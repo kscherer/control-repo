@@ -23,6 +23,12 @@ mcollective::site_policies:
     actions: "*"
     facts: "*"
     classes: "*"
+mcollective::rpcutil_policies:
+  - action: "allow"
+    callers: "*"
+    actions: "ping daemon_stats inventory"
+    facts: "*"
+    classes: "*"
 
 ntp::servers:
   - ntp-1.wrs.com
