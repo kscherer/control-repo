@@ -62,14 +62,14 @@ class git::grokmirror::mirror(
   cron {
     'grokmirror_pull':
       ensure  => present,
-      command => '/home/git/grok_venv/bin/grok-pull --config /git/repos.conf > /dev/null 2>&1',
+      command => '/home/git/grok_venv/bin/grok-pull --config /git/repos.conf > /git/log/grok-pull.log 2>&1',
       user    => 'git';
     'mirror-kernels':
       command => 'MIRROR=ala-git.wrs.com /git/bin/mirror-kernels',
       user    => 'git',
       minute  => 30;
     'grokmirror_fsck_and_prune':
-      command => '/home/git/grok_venv/bin/grok-fsck --config /git/fsck.conf > /dev/null 2>&1',
+      command => '/home/git/grok_venv/bin/grok-fsck --config /git/fsck.conf > /git/log/grok-fsck.log 2>&1',
       user    => 'git',
       hour    => 2,
       minute  => 0;
@@ -77,10 +77,10 @@ class git::grokmirror::mirror(
 
   include logrotate
 
-  #rotate the grokmirror log file
+  #rotate the grokmirror log files
   logrotate::rule {
     'grokmirror':
-      path         => "${toplevel}/log/${site}.log",
+      path         => "${toplevel}/log/*.log",
       rotate       => '7',
       rotate_every => 'day',
       missingok    => true,
