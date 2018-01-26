@@ -14,6 +14,7 @@ class git::cgit {
       ensure => present,
       owner  => 'git',
       group  => 'git',
+      mode   => '0755',
       source => 'puppet:///modules/git/generate_cgit_repolist.sh';
     '/var/cache/cgit':
       ensure => absent,
