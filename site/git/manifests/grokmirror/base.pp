@@ -21,9 +21,11 @@ class git::grokmirror::base {
 
   include ::python
 
+  # python module install python-virtualenv, but xenial requires virtualenv package as well
   package {
-    'virtualenv':
-      ensure => present;
+    'virtualenv3':
+      ensure => present,
+      name   => 'virtualenv';
   }
 
   file {
