@@ -7,4 +7,4 @@ consul_config_hash:
     - '147.11.105.38' # ala-blade18
     - '128.224.153.37' # pek-git-new
 
-python::virtualenv: true
+python::virtualenv: 'present'
