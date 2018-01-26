@@ -21,6 +21,11 @@ class git::grokmirror::base {
 
   include ::python
 
+  package {
+    'virtualenv':
+      ensure => present;
+  }
+
   file {
     '/home/git/grok-requirements.txt':
       ensure  => file,

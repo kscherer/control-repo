@@ -114,8 +114,6 @@ class profile::git::mirror {
           path           => '/var/www/',
           options        => ['Indexes', 'FollowSymLinks', 'MultiViews'],
           allow_override => ['None'],
-          order          => ['Allow','Deny'],
-          allow          => 'from all',
         },
         { # enable cgit scripts
           path    => '/usr/lib/cgit',

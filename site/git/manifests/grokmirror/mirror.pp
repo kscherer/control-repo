@@ -5,7 +5,7 @@ class git::grokmirror::mirror(
   $projectslist_symlinks = 'no',
   $post_update_hook = undef,
   $default_owner = 'Grokmirror',
-  $log_level = 'info',
+  $loglevel = 'info',
   $include = '*',
   $exclude = undef,
   $pull_threads = 5,
