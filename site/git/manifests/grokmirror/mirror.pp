@@ -8,7 +8,13 @@ class git::grokmirror::mirror(
   $log_level = 'info',
   $include = '*',
   $exclude = undef,
-  $pull_threads = '5'
+  $pull_threads = 5,
+  $fsck_frequency = 30,
+  $repack = 'yes',
+  $repack_flags = '-A -d -l -q -b',
+  $full_repack_every = 10,
+  $full_repack_flags = '-A -d -l -q -b -f --window=200 --depth=50',
+  $prune = 'yes'
 ) {
 
   include git::grokmirror::base
@@ -17,67 +23,56 @@ class git::grokmirror::mirror(
     "${toplevel}/log":
       ensure => directory,
       owner  => 'git',
-      group  => 'git',
-      before => Grokmirror_repos_config["${site}/log"];
+      group  => 'git';
+    "${toplevel}/repos.conf":
+      ensure  => file,
+      owner   => 'git',
+      group   => 'git',
+      mode    => '0644',
+      content => epp('git/repos.conf.epp',
+      {
+        site             => $site,
+        toplevel         => $toplevel,
+        post_update_hook => $post_update_hook,
+        pull_threads     => $pull_threads,
+        loglevel         => $loglevel,
+        include          => $include,
+        exclude          => $exclude
+      });
+    "${toplevel}/fsck.conf":
+      ensure  => file,
+      owner   => 'git',
+      group   => 'git',
+      mode    => '0644',
+      content => epp('git/fsck.conf.epp',
+      {
+        site              => $site,
+        toplevel          => $toplevel,
+        loglevel          => $loglevel,
+        fsck_frequency    => $fsck_frequency,
+        repack            => $repack,
+        repack_flags      => $repack_flags,
+        full_repack_every => $full_repack_every,
+        full_repack_flags => $full_repack_flags,
+        prune             => $prune
+      });
   }
-
-  #Clean unused entries from grokmirror config repo
-  resources {
-    'grokmirror_repos_config':
-      purge => true;
-  }
-
-  #Create the entries for the grokmirror config file
-  grokmirror_repos_config {
-    "${site}/site":
-      value   => "git://${site}";
-    "${site}/manifest":
-      value => "http://${site}/manifest.js.gz";
-    "${site}/toplevel":
-      value   => $toplevel;
-    "${site}/mymanifest":
-      value => "${toplevel}/manifest.js.gz";
-    "${site}/projectslist":
-      value => "${toplevel}/projects.list";
-    "${site}/projectslist_trimtop":
-      value => $toplevel;
-    "${site}/projectslist_symlinks":
-      value   => $projectslist_symlinks;
-    "${site}/post_update_hook":
-      value   => $post_update_hook;
-    "${site}/default_owner":
-      value   => $default_owner;
-    "${site}/log":
-      value   => "${toplevel}/log/${site}.log";
-    "${site}/loglevel":
-      value   => $log_level;
-    "${site}/lock":
-      value   => "${toplevel}/${site}.lock";
-    "${site}/include":
-      value   => $include;
-    "${site}/exclude":
-      value   => $exclude;
-    "${site}/pull_threads":
-      value   => $pull_threads;
-  }
-
-  $python = 'python'
 
   #run the command to actually do the mirroring
   cron {
     'grokmirror_pull':
       ensure  => present,
-      command => "PYTHONPATH=/git/grokmirror ${python} /git/grokmirror/grokmirror/pull.py --config /git/repos.conf > /dev/null 2>&1",
+      command => '/home/git/grok_venv/bin/grok-pull --config /git/repos.conf > /dev/null 2>&1',
       user    => 'git';
     'mirror-kernels':
       command => 'MIRROR=ala-git.wrs.com /git/bin/mirror-kernels',
       user    => 'git',
       minute  => 30;
-    'force_grok_pull':
-      ensure  => present,
-      command => "sleep 15; PYTHONPATH=/git/grokmirror ${python} /git/grokmirror/grokmirror/pull.py --config /git/repos.conf --force > /dev/null 2>&1",
+    'grokmirror_fsck_and_prune':
+      command => '/home/git/grok_venv/bin/grok-fsck --config /git/fsck.conf > /dev/null 2>&1',
       user    => 'git',
-      minute  => fqdn_rand(60);
+      hour    => 2,
+      minute  => 0;
   }
 
   include logrotate
@@ -86,7 +81,7 @@ class git::grokmirror::mirror(
   logrotate::rule {
     'grokmirror':
       path         => "${toplevel}/log/${site}.log",
-      rotate       => 7,
+      rotate       => '7',
       rotate_every => 'day',
       missingok    => true,
       ifempty      => false,
@@ -94,7 +89,7 @@ class git::grokmirror::mirror(
       compress     => true;
     'git_cron_log':
       path         => "${toplevel}/cron-kernels.log",
-      rotate       => 7,
+      rotate       => '7',
       rotate_every => 'day',
       olddir       => "${toplevel}/log",
       missingok    => true,
@@ -109,7 +104,7 @@ class git::grokmirror::mirror(
     '/git/wr-hooks.git':
       ensure   => bare,
       provider => git,
-      source   => 'git://ala-git/wr-hooks.git',
+      source   => 'git://ala-git.wrs.com/wr-hooks.git',
       user     => 'git';
     '/git/wr-hooks':
       ensure   => latest,
@@ -122,9 +117,6 @@ class git::grokmirror::mirror(
 
   # setup for http access to wrl9+ release trees
   file {
-    '/var/www/release':
-      ensure => link,
-      target => '/git/release/';
     '/home/git/sync_files.sh':
       ensure => present,
       owner  => 'git',

@@ -18,4 +18,25 @@ class git::grokmirror::base {
       user     => 'git',
       revision => 'master';
   }
+
+  include ::python
+
+  file {
+    '/home/git/grok-requirements.txt':
+      ensure  => file,
+      owner   => 'git',
+      group   => 'git',
+      source  => 'puppet:///modules/git/grok-requirements.txt',
+      require => User['git'];
+  }
+
+  ::python::virtualenv {
+    'grok_venv':
+      ensure       => present,
+      requirements => '/home/git/grok-requirements.txt',
+      venv_dir     => '/home/git/grok_venv',
+      owner        => 'git',
+      group        => 'git',
+      require      => [File['/home/git/grok-requirements.txt'], User['git']];
+  }
 }

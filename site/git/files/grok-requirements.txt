@@ -1,0 +1,8 @@
+--no-index
+--find-links http://yow-mirror.wrs.com/mirror/python
+--trusted-host yow-mirror.wrs.com
+anyjson==0.3.3
+gitdb2==2.0.3
+GitPython==2.1.8
+grokmirror==1.0.1
+smmap2==2.0.3

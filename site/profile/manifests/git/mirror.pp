@@ -65,6 +65,7 @@ class profile::git::mirror {
 
   include git::user
   include git::service
+
   file {
     '/git':
       ensure  => directory,
@@ -87,6 +88,75 @@ class profile::git::mirror {
   # mlocate is a waste for resources
   package {
     'mlocate':
-      ensure  => absent,
+      ensure  => absent;
+    ['tmux', 'aptitude', 'curl']:
+      ensure => installed;
   }
+
+  include ::apache
+  include ::git::cgit
+
+  # One apache config to enable three different things
+  # 1. cgit view of git repos under /git
+  # 2. read only webdav view of files under /var/www
+  # 3. git-http-backend to enable efficient git clone and update over http for WRL9+ releases
+  apache::vhost {
+    "mirror-${::hostname}":
+      port                 => '80',
+      docroot              => '/var/www/',
+      # set env vars used by git-http-backend
+      setenv               => ['GIT_PROJECT_ROOT /var/www/release', 'GIT_HTTP_EXPORT_ALL'],
+      redirectmatch_status => ['301'],
+      redirectmatch_regexp => ['^/cgit$'],
+      redirectmatch_dest   => ['/cgit/'],
+      directories          => [
+        { # read only web view of directories under /var/www
+          path           => '/var/www/',
+          options        => ['Indexes', 'FollowSymLinks', 'MultiViews'],
+          allow_override => ['None'],
+          order          => ['Allow','Deny'],
+          allow          => 'from all',
+        },
+        { # enable cgit scripts
+          path    => '/usr/lib/cgit',
+          options => ['FollowSymLinks', 'ExecCGI']
+        },
+      ],
+      scriptaliases        => [
+        { # enable cgit on /cgit/ url path
+          alias => '/cgit/',
+          path  => '/usr/lib/cgit/cgit.cgi/'
+        },
+        { # git objects under release path use git-http-backend for efficient transfer
+          aliasmatch => '"(?x)^/release/(.*/(HEAD | info/refs | objects/info/[^/]+ | git-(upload|receive)-pack))$"',
+          path       => "/usr/lib/git-core/git-http-backend/\$1"
+        },
+      ],
+      aliases              => [
+        { # path to cgit static resources like icons
+          alias => '/cgit-data',
+          path  => '/usr/share/cgit'
+        },
+        { # enable download of release json file
+          aliasmatch => '^/release/(.*/*.json})$',
+          path       => "/var/www/release/\$1"
+        },
+        { # map git objects to on disk location
+          aliasmatch => '^/release/(.*/objects/[0-9a-f]{2}/[0-9a-f]{38})$',
+          path       => "/var/www/release/\$1"},
+        { # map git pack objects to on disk location
+          aliasmatch => '^/release/(.*/objects/pack/pack-[0-9a-f]{40}.(pack|idx))$',
+          path       => "/var/www/release/\$1"
+        },
+      ],
+  }
+
+  file {
+    '/var/www/release':
+      ensure  => link,
+      target  => '/git/release',
+      require => File['/git'];
+  }
+
+  include ::git::grokmirror::mirror
 }

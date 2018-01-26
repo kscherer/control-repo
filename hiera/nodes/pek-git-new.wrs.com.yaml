@@ -6,3 +6,5 @@ consul_config_hash:
   retry_join_wan:
     - '128.224.137.17' # yow-git2
     - '147.11.105.38' # ala-blade18
+
+python::virtualenv: true

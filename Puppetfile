@@ -121,6 +121,14 @@ mod 'example42-network',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.example42.puppet-network.git',
  :ref => 'v3.3.9'
 
+mod 'puppetlabs-apache',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-apache.git',
+ :ref => '2.3.0'
+
+mod 'stankevich-python',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.stankevich.puppet-python',
+ :ref => '1.18.2'
+
 mod 'choria-mcollective',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.choria-io.puppet-mcollective.git',
  :ref => '0.2.1'

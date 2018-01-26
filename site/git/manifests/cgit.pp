@@ -15,6 +15,8 @@ class git::cgit {
       owner  => 'git',
       group  => 'git',
       source => 'puppet:///modules/git/generate_cgit_repolist.sh';
+    '/var/cache/cgit':
+      ensure => absent,
   }
 
   cron {

@@ -56,6 +56,12 @@ define profile::user( $password, $managehome = true ) {
       group  => $name,
       mode   => '0755',
       source => 'puppet:///modules/profile/aliases';
+    "${home}/.tmux.conf":
+      ensure => present,
+      owner  => $name,
+      group  => $name,
+      mode   => '0755',
+      source => 'puppet:///modules/profile/tmux.conf';
     "${home}/.bash_profile":
       ensure  => present,
       owner   => $name,
