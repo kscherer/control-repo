@@ -102,7 +102,7 @@ sensu::purge: true
 apache::default_vhost: false
 
 git::grokmirror::mirror::site: "ala-git.wrs.com"
-git::grokmirror::mirror::toplevel: "/git/"
+git::grokmirror::mirror::toplevel: "/git"
 
 python::pip: 'absent'
 

@@ -20,7 +20,7 @@ site = git://<%= $site %>
 manifest = http://<%= $site -%>/manifest.js.gz
 #
 # Where are we going to put the mirror on our disk?
-toplevel = <%= $toplevel %>
+toplevel = <%= $toplevel %>/
 #
 # Where do we store our own manifest? Usually in the toplevel.
 mymanifest = <%= $toplevel -%>/manifest.js.gz
