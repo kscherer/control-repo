@@ -1,6 +1,8 @@
 ---
 puppet::runmode: 'cron'
 puppet::puppetmaster: '%{server_facts.servername}'
+puppet::server_environment_class_cache_enabled: true
+puppet::server_max_active_instances: 8
 
 puppetdb::listen_address: 0.0.0.0
 puppetdb::master::config::manage_storeconfigs: false

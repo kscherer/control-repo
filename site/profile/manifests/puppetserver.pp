@@ -6,15 +6,16 @@ class profile::puppetserver
 
   class {
     '::r10k':
-      version         => 'latest',
-      sources         => {
+      version           => 'latest',
+      sources           => {
         'puppet' => {
           'remote'  => 'git://ala-git.wrs.com/lpd-ops/puppet-control-repo.git',
           'basedir' => $::settings::environmentpath,
           'prefix'  => false,
         },
       },
-    manage_modulepath => false
+      postrun_command   => ['/usr/local/bin/clear_environment_cache.sh'],
+      manage_modulepath => false
   }
 
   # Instead of running via mco, run r10k directly
@@ -54,6 +55,16 @@ class profile::puppetserver
       group  => 'puppet',
       mode   => '0755',
       source => 'puppet:///modules/profile/foreman.yaml';
+    '/usr/local/bin/clear_environment_cache.sh':
+      ensure  => file,
+      owner   => 'puppet',
+      group   => 'puppet',
+      mode    => '0755',
+      content => epp('profile/clear_environment_cache.sh.epp',
+      {
+        fqdn   => $::fqdn,
+        server => $::fqdn
+      });
   }
 
   # to access ala-lpd-provision from 105 subnet must use ala-lpd-provision105.
