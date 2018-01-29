@@ -14,7 +14,7 @@ class profile::puppetserver
           'prefix'  => false,
         },
       },
-      postrun_command   => ['/usr/local/bin/clear_environment_cache.sh'],
+      postrun           => ['/usr/local/bin/clear_environment_cache.sh'],
       manage_modulepath => false
   }
 
