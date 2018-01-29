@@ -7,8 +7,8 @@
 # Only works if installed and called on the machine with the puppetserver
 # unless the host has access to the puppet-admin API
 #
-/usr/bin/curl -i --cert /etc/puppetlabs/puppet/ssl/certs/<%= $fqdn -%>  \
-   --key /etc/puppetlabs/puppet/ssl/private_keys/<%= $fqdn -%>  \
+/usr/bin/curl -i --cert /etc/puppetlabs/puppet/ssl/certs/<%= $fqdn -%>.pem \
+   --key /etc/puppetlabs/puppet/ssl/private_keys/<%= $fqdn -%>.pem \
    --cacert /etc/puppetlabs/puppet/ssl/certs/ca.pem -X DELETE \
      https://<%= $server -%>:8140/puppet-admin-api/v1/environment-cache
 
