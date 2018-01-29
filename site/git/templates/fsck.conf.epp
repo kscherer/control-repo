@@ -45,6 +45,7 @@ ignore_errors = dangling commit
                 notice: No default references
                 contains zero-padded file modes
                 missingTaggerEntry
+                missingSpaceBeforeDate
 #
 # Repack the repositories after calling git-fsck.
 # This will especially save you space if you have shared repositories.
