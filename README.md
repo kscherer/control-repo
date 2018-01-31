@@ -66,6 +66,11 @@ Notes:
 Docker containers do not have a functioning init system like systemd
 and some modules that rely on the systemd provider will fail.
 
+To create a base Ubuntu container with the puppet agent setup to run
+systemd:
+
+    > make puppet-agent-ubuntu
+
 To run a systemd enabled container the process is more complicated:
 
     > docker run -d -t --rm --name puppet-agent --hostname <hostname> \
@@ -77,6 +82,34 @@ To run a systemd enabled container the process is more complicated:
     # puppet agent --test
     # ...
     > docker stop puppet-agent
+
+## Using Puppet apply with Docker
+
+In some cases using puppet apply is simpler and faster than starting
+the entire PuppetServer stack.
+
+    > docker run -d -t --rm --name puppet-agent --security-opt seccomp=unconfined \
+      --tmp fs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+      -v $PWD:/puppet-control-repo /puppet-agent-ubuntu
+
+This will start an Ubuntu container with systemd as the init
+service. The local puppet modules will be bind mounted into the
+container at /puppet-control-repo.
+
+Log into the container and run puppet apply:
+
+    > docker exec -it puppet-agent bash
+    # apt-get update
+    # puppet apply --modulepath /puppet-control-repo/modules:/puppet-control-repo/site \
+      --hiera_config /puppet-control-repo/hiera.noeyaml.yaml -e 'include <module>'
+
+Notes:
+
+- The current puppet agent container does not contain eyaml gem and
+  cannot decrypt eyaml, so a special hiera config without eyaml is
+  used.
+- Instead of inline script using -e, place a test.pp file in the root
+  of puppet-control-repo and use that instead.
 
 ## Acknowledgements
 
