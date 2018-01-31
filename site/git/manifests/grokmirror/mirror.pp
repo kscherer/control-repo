@@ -18,6 +18,7 @@ class git::grokmirror::mirror(
 ) {
 
   include git::grokmirror::base
+  include git::grokmirror::monitor
 
   file {
     "${toplevel}/log":
@@ -73,6 +74,11 @@ class git::grokmirror::mirror(
       user    => 'git',
       hour    => 2,
       minute  => 0;
+    'mirror_repo_setup':
+      command => '/home/git/repo_setup.sh > /dev/null 2>&1',
+      user    => 'git',
+      hour    => 1,
+      minute  => 0;
   }
 
   include logrotate
@@ -123,6 +129,12 @@ class git::grokmirror::mirror(
       group  => 'git',
       mode   => '0755',
       source => 'puppet:///modules/git/sync_files.sh';
+    '/home/git/repo_setup.sh':
+      ensure => present,
+      owner  => 'git',
+      group  => 'git',
+      mode   => '0755',
+      source => 'puppet:///modules/git/repo_setup.sh';
   }
 
   cron {
