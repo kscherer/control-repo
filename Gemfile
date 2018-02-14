@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-gem 'librarian-puppet'
 gem 'r10k'
-gem 'ra10ke'
 gem 'hiera-eyaml'
+gem 'bolt'
