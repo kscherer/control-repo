@@ -19,7 +19,7 @@ mod 'b4ldr-logrotate', '1.1.3'
 
 mod 'puppetlabs-docker',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.puppetlabs.puppetlabs-docker.git',
-  :ref => '1.0.2'
+  :ref => '1.0.5'
 
 mod 'deric-mesos',
   :git => 'git://ala-git.wrs.com/external/puppet/github.com.deric.puppet-mesos.git',
