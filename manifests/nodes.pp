@@ -21,7 +21,7 @@ node 'ala-blade21.wrs.com' {
   include ::profile::docker
 }
 
-node 'yow-git2.wrs.com' {
+node 'yow-git.wrs.com' {
   include ::profile::git::mirror
 }
 
