@@ -64,7 +64,15 @@ class git::grokmirror::mirror(
     'grokmirror_pull':
       ensure  => present,
       command => '/home/git/grok_venv/bin/grok-pull --config /git/repos.conf > /git/log/grok-pull.log 2>&1',
-      user    => 'git';
+      user    => 'git',
+      hour    => '*',
+      minute  => '*';
+    'force_grokmirror_pull':
+      ensure  => present,
+      command => 'sleep 30; /home/git/grok_venv/bin/grok-pull --force --config /git/repos.conf > /git/log/grok-pull.log 2>&1',
+      user    => 'git',
+      hour    => '*',
+      minute  => fqdn_rand(60);
     'mirror-kernels':
       command => 'MIRROR=ala-git.wrs.com /git/bin/mirror-kernels',
       user    => 'git',
