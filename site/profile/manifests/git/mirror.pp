@@ -106,9 +106,9 @@ class profile::git::mirror {
       docroot              => '/var/www/',
       # set env vars used by git-http-backend
       setenv               => ['GIT_PROJECT_ROOT /var/www/release', 'GIT_HTTP_EXPORT_ALL'],
-      redirectmatch_status => ['301'],
-      redirectmatch_regexp => ['^/cgit$'],
-      redirectmatch_dest   => ['/cgit/'],
+      redirectmatch_status => ['301','301','301','301','301'],
+      redirectmatch_regexp => ['^/cgit$','^$','^/$','^/git$','^/git/$'],
+      redirectmatch_dest   => ['/cgit/','/cgit/','/cgit/','/cgit/','/cgit/'],
       directories          => [
         { # read only web view of directories under /var/www
           path           => '/var/www/',
