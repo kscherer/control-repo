@@ -29,6 +29,10 @@ node 'pek-git-new.wrs.com' {
   include ::profile::git::mirror
 }
 
+node 'ala-git-new.wrs.com' {
+  include ::profile::git::base
+}
+
 node 'ala-danield-node1.wrs.com' {
   include ::profile::common::etc_host_setup
   include ::profile::common::network

@@ -1,0 +1,2 @@
+---
+profile::common::network::manage_interface: false
