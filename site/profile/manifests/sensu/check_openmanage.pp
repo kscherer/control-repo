@@ -7,7 +7,7 @@ class profile::sensu::check_openmanage {
   # standalone check must be defined on every sensu client
   sensu::check {
     'check_openmanage':
-      command     => "${::profile::sensu::params::check_path}:/usr/bin check_openmanage --state --extinfo --timeout=60 --vdisk-critical --blacklist bat=all --blacklist bat_charge=all",
+      command     => "${::profile::sensu::params::check_path}:/usr/bin check_openmanage --state --extinfo --timeout=60 --vdisk-critical --blacklist bat=all --blacklist bat_charge=all --blacklist pdisk_cert=all",
       subscribers => 'openmanage',
       ttl         => 9000,
       interval    => 3600,
