@@ -30,7 +30,7 @@ node 'pek-git-new.wrs.com' {
 }
 
 node 'ala-git-new.wrs.com' {
-  include ::profile::git::base
+  include ::profile::git::master
 }
 
 node 'ala-danield-node1.wrs.com' {

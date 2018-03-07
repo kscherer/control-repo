@@ -101,7 +101,7 @@ Log into the container and run puppet apply:
     > docker exec -it puppet-agent bash
     # apt-get update
     # puppet apply --modulepath /puppet-control-repo/modules:/puppet-control-repo/site \
-      --hiera_config /puppet-control-repo/hiera.noeyaml.yaml -e 'include <module>'
+      --hiera_config /puppet-control-repo/hiera_noeyaml.yaml -e 'include <module>'
 
 Notes:
 

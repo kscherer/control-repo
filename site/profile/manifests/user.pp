@@ -1,5 +1,5 @@
 # reduce boilerplate with user definition
-define profile::user( $password, $managehome = true ) {
+define profile::user( $password, $managehome = true, $install_ssh_keys = true ) {
   if $name == 'root' {
     $home = '/root'
   } else {
@@ -20,27 +20,29 @@ define profile::user( $password, $managehome = true ) {
       ensure => present;
   }
 
-  ssh_authorized_key {
-    "kscherer_desktop_${name}":
-      ensure => 'present',
-      user   => $name,
-      key    => hiera('kscherer@yow-kscherer-d1'),
-      type   => 'ssh-rsa';
-    "kscherer_laptop_${name}":
-      ensure => 'present',
-      user   => $name,
-      key    => hiera('kscherer@yow-kscherer-l1'),
-      type   => 'ssh-rsa';
-    "kscherer_argon_${name}":
-      ensure => 'present',
-      user   => $name,
-      key    => hiera('kscherer@argon'),
-      type   => 'ssh-rsa';
-    "ywang_${name}":
-      ensure => 'present',
-      user   => $name,
-      key    => hiera('ywang@yow-lpdtest'),
-      type   => 'ssh-rsa';
+  if $install_ssh_keys {
+    ssh_authorized_key {
+      "kscherer_desktop_${name}":
+        ensure => 'present',
+        user   => $name,
+        key    => hiera('kscherer@yow-kscherer-d1'),
+        type   => 'ssh-rsa';
+      "kscherer_laptop_${name}":
+        ensure => 'present',
+        user   => $name,
+        key    => hiera('kscherer@yow-kscherer-l1'),
+        type   => 'ssh-rsa';
+      "kscherer_argon_${name}":
+        ensure => 'present',
+        user   => $name,
+        key    => hiera('kscherer@argon'),
+        type   => 'ssh-rsa';
+      "ywang_${name}":
+        ensure => 'present',
+        user   => $name,
+        key    => hiera('ywang@yow-lpdtest'),
+        type   => 'ssh-rsa';
+    }
   }
 
   file {

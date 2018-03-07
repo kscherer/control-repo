@@ -1,2 +1,15 @@
 ---
 profile::common::network::manage_interface: false
+
+git::user::install_ssh_keys: false
+
+gitolite::user_name: git
+gitolite::group_name: git
+gitolite::manage_user: false
+gitolite::manage_home_dir: false
+gitolite::home_dir: /home/git
+gitolite::repo_specific_hooks: true
+gitolite::umask: '0022' # allow global read by apache group for http serving
+gitolite::admin_key_source: 'puppet:///modules/profile/kscherer_rsa.pub'
+gitolite::allow_local_code: true
+gitolite::local_code_in_repo: true

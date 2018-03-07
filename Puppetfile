@@ -161,6 +161,10 @@ mod 'camptocamp-kmod',
  :git => 'git://ala-git.wrs.com/external/puppet/github.com.camptocamp.puppet-kmod.git/',
  :ref => '2.2.0'
 
+mod 'echoes-gitolite',
+ :git => 'git://ala-git.wrs.com/external/puppet/github.com.echoes-tech.puppet-gitolite.git',
+ :ref => 'v1.0.0'
+
 # internal git tree copies of forge modules
 mod 'choria-mcollective_choria',
  :git => 'git://ala-git.wrs.com/lpd-ops/choria/mcollective_choria.git',

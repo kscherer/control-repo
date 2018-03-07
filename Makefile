@@ -10,9 +10,11 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
 
 install: ## Install ruby gems locally using bundler
+	export BUNDLE_DISABLE_VERSION_CHECK=1; \
 	bundle install --path=.bundle
 
 update: install ## Update the packages in the local bundle
+	export BUNDLE_DISABLE_VERSION_CHECK=1; \
 	bundle update
 
 modules: install ## Install a local version of all the modules in the Puppetfile
