@@ -17,4 +17,20 @@ class profile::docker {
         },
       ]
   }
+
+  # if apparmor monitoring of docker is completely disabled docker
+  # will not work, but forcing it to be in complain mode only works
+  # If apparmor is enabled, builds will fail due syslinux behavior
+  # of passing a /proc filehandle to a child process
+  file {
+    '/etc/apparmor.d/force-complain/docker':
+      ensure => link,
+      target => '/etc/apparmor.d/docker',
+      notify => Exec['apparmor_reload'];
+  }
+  exec {
+    'apparmor_reload':
+      command     => '/usr/sbin/invoke-rc.d apparmor reload',
+      refreshonly => true;
+  }
 }
