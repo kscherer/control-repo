@@ -1,7 +1,9 @@
 # Profile for git mirrors
 class profile::git::master {
   include ::profile::git::base
-  # include ::git::grokmirror::master
+
+  # first stage is to mirror existing repos
+  include ::git::grokmirror::mirror
 
   include ::gitolite
 }
