@@ -1,6 +1,8 @@
 ---
 profile::common::network::manage_interface: false
 
+python::virtualenv: 'present'
+
 git::user::install_ssh_keys: false
 
 gitolite::user_name: git
