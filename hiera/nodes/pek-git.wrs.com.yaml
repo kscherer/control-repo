@@ -1,1 +1,10 @@
-pek-git-new.wrs.com.yaml
+---
+consul_config_hash:
+  server: true
+  bootstrap_expect: '1'
+  ui: true
+  retry_join_wan:
+    - '128.224.137.17' # yow-git2
+    - '147.11.105.38' # ala-blade18
+
+python::virtualenv: 'present'

@@ -25,7 +25,7 @@ node 'yow-git.wrs.com' {
   include ::profile::git::mirror
 }
 
-node 'pek-git-new.wrs.com' {
+node 'pek-git.wrs.com' {
   include ::profile::git::mirror
 }
 
