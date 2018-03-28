@@ -20,6 +20,30 @@ To install all the modules locally using r10k:
 This will install all the ruby gems into .bundle and use r10k to
 install all the puppet modules in Puppetfile into the modules/ directory.
 
+## Git branch to Puppet Environment mapping
+
+This setup maps git branches to Puppet environments. Note that Puppet
+environments only support [a-zA-Z_] and characters like dashes are
+mapped to underscores.
+
+Create the new branch using standard git commands:
+
+    git checkout -b <branch>
+    git push origin <branch>
+
+Now this new branch can be used by an agent as follows:
+
+    puppet agent --test --environment <branch>
+
+To make the environment selection permanent, change the environment
+setting in /etc/puppetlabs/puppet/puppet.conf. If the node uses
+theforeman-puppet module, this will be done automatically.
+
+To delete an environment, delete the branch locally and remotely:
+
+    git branch -D <branch>
+    git push origin :<branch>
+
 ## Docker Test Setup
 
 Using docker to simulate a local test setup for the development of
